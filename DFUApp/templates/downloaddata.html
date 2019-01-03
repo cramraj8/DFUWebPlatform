@@ -1,0 +1,117 @@
+{% extends "base_generic.html" %}
+
+
+{% block content %}
+  <!-- <div style="margin-left:25%;padding:1px 16px;height:5000px;"> -->
+    <div style="margin-left:30%;padding:1px 50px;height:auto;">
+        <div class="wrapper">
+
+            <form class="form" action="/post_download/" method="post">
+            <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+                <div class="get_data_form">
+                    <p>
+                        <label for="patient_id">Patient ID</label>
+                        <input type="text" name="patient_id" id="patient_id" required>
+                    </p>
+
+                    <p>
+                        <label for="fullname">Full Name</label>
+                        <input type="text" name="fullname" id="fullname" placeholder="Full Name">
+                    </p>
+
+                    <p>
+                        <label for="email">Email Address</label>
+                        <input type="email" name="email" id="email" placeholder="john@gmail.com">
+                    </p>
+                </div>
+
+
+
+            <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+                <dir class="buttonDownload">
+                    <a href="#" class="download" onclick="downloadClick">Download</a>
+                    <!-- <button type="submit">Submit</button> -->
+                </dir>
+                <!-- <button type="submit">Submit</button> -->
+
+            <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+                <div class="image_view">
+
+                    <img src="{{img}}" id="dowloaded_image"/>
+
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                          <span class="close">&times;</span>
+                          <img class="modal-content" id="img01">
+                          <div id="caption"></div>
+                    </div>
+
+                </div>
+
+                <dir> <label class="downloadURL"></label></dir>
+
+
+            <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+            </form>
+
+            <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+            <script>
+                  // var config = {
+                  //   'apiKey': "AIzaSyCcNlDbs4TTjWyO1y8EBj3deI9Cmk7ZR98",
+                  //   'authDomain': "dfumonitoring.firebaseapp.com",
+                  //   'databaseURL': "https://dfumonitoring.firebaseio.com",
+                  //   'projectId': "dfumonitoring",
+                  //   'storageBucket': "dfumonitoring.appspot.com",
+                  //   'messagingSenderId': "52399712278"
+                  // };
+                  // firebase.initializeApp(config);
+
+                  alert('Hello');
+
+                  // Get a reference to the storage service, which is used to create references in your storage bucket
+
+                  // function downloadClick(){
+                      // var storage = firebase.storage();
+
+                      // var file = document.getElementById("patient_id");
+
+                  //     var storageRef = storage.ref();
+
+                  //     var thisref = storage.ref('PatientFootImage/' + patient_id);
+                  //     // thisref.put(file);
+                  //     // var thisref = storageRef.child(file.name).put(file);
+
+                  //     var downloadURL = thisref.downloadURL;
+                  //     document.getElementById("downloadURL").value = downloadURL;
+
+                  //     thisref.on('state_changed',function(snapshot){
+
+                  //     console.log("file uplaoded succesfully");
+
+                  // })
+                  // };
+                  // ,
+                  // function(error) {
+
+                  // },
+
+                //   function() {
+                //   // Upload completed successfully, now we can get the download URL
+                //   var downloadURL = thisref.snapshot.downloadURL;
+                //   console.log("got url");
+                //   document.getElementById("url").value = downloadURL;
+                //   alert("file uploaded successfully");
+                // }
+                // );
+
+                // };
+            </script>
+
+        </div>
+    </div>
+{% endblock %}
+

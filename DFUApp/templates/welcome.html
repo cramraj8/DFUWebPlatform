@@ -1,0 +1,56 @@
+{% extends "base_generic.html" %}
+
+
+
+{% block content %}
+
+
+    <div style="margin-left:25%;margin-top: 5%;padding:1px 50px;height:5000px;">
+
+        <h1>Local  Home</h1>
+            <div>
+                <!-- Welcome {{e}} -->
+                <br><br>
+            </div>
+
+        <!-- <button type="button" onclick="location.href='{% url 'check' %}'">Check Report</button> -->
+
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+        {% for time,dat,work in comb_lis %}
+
+            Date: {{dat}} &nbsp;Work: <a href="/post_check/?z={{time}}"  >No variable</a>
+            <br>
+
+        {% endfor %}
+
+
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+    <p>
+        Welcome to DFU Monitorization Home Page
+    </p>
+
+    <p>
+        What is DFU?
+        <p>Description</p>
+    </p>
+
+    <p>
+        What do we need to monitor DFU?
+        <p>Description</p>
+    </p>
+
+    <p>
+        What are our features?
+        <p>Description</p>
+    </p>
+
+
+
+
+
+
+    </div>
+
+{% endblock %}

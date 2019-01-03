@@ -1,0 +1,120 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+        <link rel="stylesheet" href="{% static 'css/main_header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main_navbar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main_sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/entryform.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/imagedata.css' %}">
+
+        <!-- <link rel="stylesheet" href="{% static 'css/main_navbar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main_header.css' %}">
+
+
+        <link rel="stylesheet" href="{% static 'css/data.css' %}">
+        <link rel="stylesheet" href="{% static 'css/downloaded_data.css' %}">
+ -->
+
+
+
+</head>
+<body>
+
+
+    {% block header %}
+    <dir class="header">
+        {% load static %}
+        <img src="{% static 'images/logo.png' %}" alt="Diabetic Logo"
+                    width="10%" height="10%">
+        <h1 align="center">Diabetic Neuropathy Monitorization</h1>
+
+
+    </dir>
+    {% endblock %}
+
+
+    {% block navbar %}
+      <div class="navbar" id="navbar_id">
+
+
+          <ul>
+              <li><a class="btn active" href="{% url 'welcome'%}">Home</a></li>
+              <li><a class="btn" href="{% url 'entryForm' %}">First Form</a></li>
+              <li><a class="btn" href="#formdata">Form Data</a></li>
+              <li><a class="btn" href="{% url 'imageData' %}">Image Data</a></li>
+              <li style="float:right"><a class="btn" href="{% url 'about' %}">About</a></li>
+          </ul>
+
+
+      </div>
+
+      <script>
+      // Add active class to the current button (highlight it)
+      var header = document.getElementById("navbar_id");
+      var btns = header.getElementsByClassName("btn");
+      // alert('did stuff #1');
+
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].onclick = function (){
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+        };
+      }
+      // alert('did stuff', this.className);
+      alert(this.className);
+      </script>
+
+      <!-- <script>
+      // Add active class to the current button (highlight it)
+      var header = document.getElementsByClassName("navbar");
+      var btns = header.getElementsByClassName("btn");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+        });
+      }
+      </script> -->
+
+    {% endblock %}
+
+
+    {% block sidebar %}
+    <div class="sidebar">
+
+        <h3>Diabetic Ulcer Management System</h3>
+
+            <ul>
+                <li><i class="fa fa-road"></i> 22 Something st</li>
+                <li><i class="fa fa-phone"></i> (555) 555-5555</li>
+                <li><i class="fa fa-envelope"></i> dfu@gmail.com</li>
+            </ul>
+
+
+            <p class="full">
+                  <button type="button"
+                  onclick="location.href='{% url 'logout' %}'">Logout</button>
+            </p>
+
+
+            <p class="full">
+                  <button type="submit">Account Settings</button>
+            </p>
+
+    </div>
+    {% endblock %}
+
+
+    {% block content %}{% endblock %}
+
+    {% block footer %}{% endblock %}
+
+</body>
+</html>

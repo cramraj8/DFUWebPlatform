@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+
+{% block content %}
+
+
+    <div class="imagedata_content"
+        style="margin-left:25%;margin-top: 5%;padding:1px 50px;">
+
+        <h1>Diabetic Neuropathy Monitorization</h1>
+
+        <p>About us, a website developed by <em>Final Year Project team</em>!</p>
+        <h2>Dynamic content</h2>
+        <p>User level data entry & data visualization tool</p>
+
+
+        <button type="button" onclick="location.href='{% url 'downloadData' %}'"
+                class="download_button">
+            {% load static %}
+            <img class="download_img" src="{% static 'images/download_icon.png' %}">
+        </button>
+
+        <button type="button" onclick="location.href='{% url 'uploadData' %}'"
+                class="upload_button">
+            {% load static %}
+            <img class="upload_img" src="{% static 'images/upload_icon.png' %}">
+        </button>
+
+
+    </div>
+
+{% endblock %}

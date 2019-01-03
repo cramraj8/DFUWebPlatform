@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+        <link rel="stylesheet" href="{% static 'css/main_header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main_navbar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main_sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/entryform.css' %}">
+        <link rel="stylesheet" href="{% static 'css/formdata.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/imagedata.css' %}">
+        <link rel="stylesheet" href="{% static 'css/downloaddata.css' %}">
+        <link rel="stylesheet" href="{% static 'css/uploaddata.css' %}">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+</head>
+<body>
+
+
+
+
+    {% block header %}
+    <dir class="header">
+        {% load static %}
+        <img src="{% static 'images/logo.png' %}" alt="Diabetic Logo"
+                    width="10%" height="10%">
+        <h1 align="center">Diabetic Neuropathy Monitorization</h1>
+
+
+    </dir>
+    {% endblock %}
+
+
+
+    {% block navbar %}
+      <div class="navbar">
+
+
+          <ul>
+              <li><a class="active" href="{% url 'welcome'%}">Home</a></li>
+              <li><a href="{% url 'entryForm' %}">First Form</a></li>
+              <li><a href="{% url 'formData'%}">Form Data</a></li>
+              <li><a href="{% url 'imageData' %}">Image Data</a></li>
+
+              <li><a href="{% url 'welcome' %}">Image Handling</a></li>
+              <li><a href="{% url 'welcome' %}">Analysis</a></li>
+
+              <li style="float:right"><a href="{% url 'about' %}">About</a></li>
+          </ul>
+
+
+      </div>
+    {% endblock %}
+
+
+    {% block sidebar %}
+    <div class="sidebar">
+
+        <h3>Diabetic Ulcer Management System</h3>
+
+            <ul>
+                <li><i class="fa fa-road"></i> 22 Something st</li>
+                <li><i class="fa fa-phone"></i> (555) 555-5555</li>
+                <li><i class="fa fa-envelope"></i> dfu@gmail.com</li>
+            </ul>
+
+
+            <p class="full">
+                  <button type="button"
+                  onclick="location.href='{% url 'logout' %}'">Logout</button>
+            </p>
+
+
+            <p class="full">
+                  <button type="submit">Account Settings</button>
+            </p>
+
+    </div>
+    {% endblock %}
+
+
+    {% block content %}{% endblock %}
+
+    {% block footer %}{% endblock %}
+
+</body>
+
+
+</html>

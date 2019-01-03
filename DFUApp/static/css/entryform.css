@@ -1,0 +1,78 @@
+
+
+.wrapper{
+  float: left;
+  font-family: Gordona;
+  background: grey;
+
+  width: 70%;
+  min-height: 530px;
+
+  text-align: left;
+
+  margin: 20px 10%;
+  padding: 10px;
+
+  /*text-shadow: -1px -1px rgba(0,0,0,1), 1px 1px rgba(255,255,255,1);*/
+  /*color: rgba(0,0,0,1);
+  border: ridge 5px darkgrey;*/
+
+  /*text-shadow: -1.5px -1.5px rgba(1,1,1,1.5), .5px 1.5px rgba(255,255,255,1.5);*/
+  /*color: rgba(139,69,19,1);*/
+  color: rgba(0,0,0,1);
+  border: ridge 5px darkgrey;
+}
+
+.wrapper input, textarea{
+    float:right;
+    padding-right:200px;
+    width:100px;
+}
+.wrapper label{
+    padding-left:20px;
+}
+.wrapper h3{
+    padding-left:40px;
+}
+.wrapper h2{
+    text-align: center;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+.form button {
+    width: 60%;
+    /*margin: auto 10%;*/
+    margin: 10% 20%;
+
+
+    display: inline-block;
+    border: none;
+    /*padding: 1rem 2rem;*/
+    padding: 1rem 2rem;
+    text-decoration: none;
+    background: #0069ed;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.form button:hover,
+button:focus {
+    background: #0053ba;
+}
+
+.form button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+.form button:active {
+    transform: scale(0.99);
+}

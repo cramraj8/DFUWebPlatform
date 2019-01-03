@@ -1,0 +1,117 @@
+
+
+/*input, button {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+}*/
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+.main-div{
+    display: inline-block;
+
+    margin-top: 10%;
+    margin-left: 35%;
+
+    padding-top: 3%;
+
+
+    width: 30%;
+    height: 330px;
+
+    text-align: center;
+
+    list-style: none;
+    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+    background:#c9e6ff;
+}
+
+.main-div > form{
+    margin-top: 10%;
+}
+
+.main-div > form > .submit_button{
+    padding-top: 30px;
+    /*display: inline-block;*/
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+.main-div > form > label {
+    float:left;
+    margin-left: 50px;
+
+    padding: 12px 20px;
+    display: inline-block;
+
+    font-size:18px;
+    position: static;
+}
+.main-div > form > input {
+    display: inline-block;
+
+    float:right;
+    margin-right: 60px;
+    box-sizing: border-box;
+    /*width: 30%;*/
+
+    border: 2px solid blue;
+    border-radius: 10px;
+
+    padding: 12px 20px;
+    /*margin: 8px 0;*/
+
+    font-size:12px;
+
+    /*border: none;
+    border-bottom: 2px solid red;*/
+
+    /*background-color: lightblue;
+    color: white;*/
+
+    /*background-image: url('searchicon.png');*/
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+.main-div form button {
+    width: 50%;
+
+    display: inline-block;
+    /*border: none;*/
+    /*padding: 1rem 2rem;*/
+    padding: 1rem 2rem;
+    text-decoration: none;
+
+    border: 2px solid white;
+    border-radius: 25px;
+    border-radius: 15px / 50px;
+
+    /*background: #0069ed;*/
+    background: #00c2f1;
+
+    color: #ffffff;
+
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.main-div form button:hover,
+button:focus {
+    background: #0053ba;
+}
+
+.main-div form button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+.main-div form button:active {
+    transform: scale(0.99);
+}
