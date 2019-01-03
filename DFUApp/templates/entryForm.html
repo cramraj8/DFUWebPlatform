@@ -2,99 +2,123 @@
 
 
 {% block content %}
-<div style="margin-left:25%;margin-top: 5%;padding:1px 50px;">
+<div>
       <div class="wrapper">
-            <h2>Patient Data</h2>
-            <br/>
-            
-            <form class="ui form" action="/post_create/" method="post">
+            <h2 class="title is-4">Patient Data</h2>
+            <form action="/post_create/" method="post">
                   {% csrf_token %}
                   
                   <div class="field">
-                        <label for="patient_id">Patient ID</label>
-                        <!-- <input type="text" name="patient_id" id="patient_id" value="Auto Assign" required> -->
-                        <input type="text" name="patient_id" id="patient_id" required>
+                        <label class="label" for="patient_id">Patient ID</label>
+                        <!-- <input class="input" type="text" name="patient_id" id="patient_id" value="Auto Assign" required> -->
+                        <div class="control">
+                              <input class="input" type="text" name="patient_id" id="patient_id" required>
+                        </div>
                   </div>
                   <div class="field">
-                        <label for="fullname">Full Name</label>
-                        <!-- <input type="text" name="fullname" id="fullname" value="Full Name"> -->
-                        <input type="text" name="fullname" id="fullname">
+                        <label class="label" for="fullname">Full Name</label>
+                        <!-- <input class="input" type="text" name="fullname" id="fullname" value="Full Name"> -->
+                        <div class="control">                        
+                              <input class="input" type="text" name="fullname" id="fullname">
+                        </div>
                   </div>
                   <div class="field">
-                        <label for="email">Email Address</label>
-                        <input type="email" name="email" id="email" placeholder="john@gmail.com">
+                        <label class="label" for="email">Email Address</label>
+                        <div class="control">
+                              
+                              <input class="input" type="email" name="email" id="email" placeholder="john@gmail.com">
+                        </div>
                   </div>
                   <div class="field">
-                        <label for="address">Address</label>
-                        <input type="text" name="address" id="address">
+                        <label class="label" for="address">Address</label>
+                        <div class="control">
+                              <input class="input" type="text" name="address" id="address">
+                        </div>
                   </div>
                   <div class="field">
-                        <label for="age">Age</label>
-                        <input type="number" name="age" id="age">
+                        <label class="label" for="age">Age</label>
+                        <div class="control">
+                              <input class="input" type="number" name="age" id="age">
+                        </div>
                   </div>
                   <div class="field">
-                        <label for="dateofbirthvisit">Date of Birth</label>
-                        <input type="date" name="dob" id="dateofbirthvisit">
+                        <label class="label" for="dateofbirthvisit">Date of Birth</label>
+                        <div class="control">
+                              <input class="input" type="date" name="dob" id="dateofbirthvisit">
+                        </div>
                   </div>
                   <div class="field">
-                        <label for="phone">Contact Number</label>
-                        <input type="tel" name="phone" id="phone" value="0772202200">
+                        <label class="label" for="phone">Contact Number</label>
+                        <div class="control">
+                              <input class="input" type="tel" name="phone" id="phone" value="0772202200">
+                        </div>
                   </div>
                   <div class="field">
-                        <label for="dateoffirstvisit">Date of First Visit</label>
-                        <input type="date" name="dateoffirstvisit" id="dateoffirstvisit">
+                        <label class="label" for="dateoffirstvisit">Date of First Visit</label>
+                        <div class="control">
+                              <input class="input" type="date" name="dateoffirstvisit" id="dateoffirstvisit">
+                        </div>
                   </div>
                   
-                  <br/>
-                  <h3>Medical Data</h3>
-                  <br/>
+                  <h4 class="title is-4">Medical Data</h3>
                   <!-- Medical Data -->
                   
                   <div class="field">
-                        <label for="height">Height</label>
-                        <input type="number" name="height" id="height">
+                        <label class="label" for="height">Height</label>
+                        <div class="control">
+                              <input class="input" type="number" name="height" id="height">
+                        </div>
                   </div>
                   <div class="field">
-                        <label for="weight">Weight</label>
-                        <input type="number" name="weight" id="weight">
+                        <label class="label" for="weight">Weight</label>
+                        <div class="control">
+                              <input class="input" type="number" name="weight" id="weight">
+                        </div>
                   </div>
                   <div class="field">
-                        <label for="bmi">BMI</label>
-                        <input type="number" name="bmi" id="bmi">
+                        <label class="label" for="bmi">BMI</label>
+                        <div class="control">
+                              <input class="input" type="number" name="bmi" id="bmi">
+                        </div>
                   </div>
                   <div class="field">
-                        <label for="dateoflastvisit">Date of Last Visit</label>
-                        <input type="date" name="dateoflastvisit" id="dateoflastvisit">
+                        <label class="label" for="dateoflastvisit">Date of Last Visit</label>
+                        <div class="control">
+                              <input class="input" type="date" name="dateoflastvisit" id="dateoflastvisit">
+                        </div>
                   </div>
                   <div class="field full">
-                        <label for="medicalhistory">Medical History</label>
-                        <textarea name="medicalhistory" rows="5" id="medicalhistory"></textarea>
+                        <label class="label" for="medicalhistory">Medical History</label>
+                        <div class="control">
+                              <textarea class="input" name="medicalhistory" rows="5" id="medicalhistory"></textarea>
+                        </div>
                   </div>
                   
-                  
-                  <br/>
-                  <br/>
-                  <br/>
-                  <h3>Diabetic Related Data</h3>
-                  <br/>
+                  <h3 class="title is-4">Diabetic Related Data</h3>
                   
                   <!-- Diabetic Specific Data -->
                   <div class="field">
-                        <label for="diabetictype">Diabetic Type</label>
-                        <input type="text" name="diabetictype" id="diabetictype">
+                        <label class="label" for="diabetictype">Diabetic Type</label>
+                        <div class="control">
+                              <input class="input" type="text" name="diabetictype" id="diabetictype">
+                        </div>
                   </div>
                   <div class="field">
-                        <label for="dateofidentification">Date of Identification</label>
-                        <input type="date" name="dateofidentification" id="dateofidentification">
+                        <label class="label" for="dateofidentification">Date of Identification</label>
+                        <div class="control">
+                              <input class="input" type="date" name="dateofidentification" id="dateofidentification">
+                        </div>
                   </div>
                   <div class="field">
-                        <label for="dfucondition">DFU Condition</label>
-                        <input type="text" name="dfucondition" id="dfucondition">
+                        <label class="label" for="dfucondition">DFU Condition</label>
+                        <div class="control">
+                              <input class="input" type="text" name="dfucondition" id="dfucondition">
+                        </div>
                   </div>
                   
                   <br/>
-                  <button class="ui button" type="submit">Submit</button>
-  
+                  <button class="ui button is-success" type="submit">Submit</button>
+                  
             </form>
             
             
