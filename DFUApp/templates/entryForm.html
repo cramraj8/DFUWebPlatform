@@ -1,21 +1,16 @@
 {% extends "base_generic.html" %}
 
-
 {% block content %}
 <div>
-      <div class="wrapper">
-            <h2 class="title is-4">Patient Data</h2>
-            <form action="/post_create/" method="post">
-                  {% csrf_token %}
-                  
-                  {% include "form_controls.html" %}
-                  
-                  <br/>
-                  <button class="ui button is-success" type="submit">Submit</button>
-                  
-            </form>
+      <h2 class="title is-4">Patient Data</h2>
+      <form action="/post_create/" method="post">
+            {% csrf_token %}
             
+            {% include "form_controls.html" %}
             
-      </div>
+            <br/>
+            <button class="ui button is-success" type="submit">Submit</button>
+            
+      </form>
 </div>
 {% endblock %}

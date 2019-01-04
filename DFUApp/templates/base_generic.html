@@ -5,71 +5,60 @@
 <head>
     <title>Diabetic Neuropathy Monitorization</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <link rel="stylesheet" href="{% static 'css/base_generic.css' %}">
 </head>
 <body>
     
     
-    <div class="container">
+    <div id="container">
+        <section id="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Diabetic Logo">
+        </section>
+
+        <section id="header">
+            <h1 class="title">Diabetic Neuropathy Monitorization</h1>
+        </section>
+        <section id="sidebar">
+            
+            <h3 class="subtitle is-3">Diabetic Ulcer Management System</h3>
+            
+            <ul>
+                <li><i class="fa fa-road"></i> 22 Something st</li>
+                <li><i class="fa fa-phone"></i> (555) 555-5555</li>
+                <li><i class="fa fa-envelope"></i> dfu@gmail.com</li>
+            </ul>
+            
+            
+            <button class="button" onclick="location.href='{% url 'logout' %}'">Logout</button>
+            
+            <button class="button" type="submit">Account Settings</button>
+            
+        </section>
         
-        <div class="columns">
-            <div class="column is-one-quarter">
-                {% block header %}
-                <div class="header">
-                    {% load static %}
-                    <img src="{% static 'images/logo.png' %}" alt="Diabetic Logo">
-                    <h1 class="title">Diabetic Neuropathy Monitorization</h1>
-                    
-                </div>
-                {% endblock %}
-                {% block sidebar %}
-                <div class="sidebar">
-                    
-                    <h3 class="subtitle is-3">Diabetic Ulcer Management System</h3>
-                    
-                    <ul>
-                        <li><i class="fa fa-road"></i> 22 Something st</li>
-                        <li><i class="fa fa-phone"></i> (555) 555-5555</li>
-                        <li><i class="fa fa-envelope"></i> dfu@gmail.com</li>
-                    </ul>
-                    
-                    
-                        <button class="button" onclick="location.href='{% url 'logout' %}'">Logout</button>
-                    
-                        <button class="button" type="submit">Account Settings</button>
-                    
-                </div>
-            </div>
-            <div class="column">
-                
-                {% block navbar %}
-                <nav class="navbar is-primary">
-                    <div class="navbar-menu">
-                        <div class="navbar-start">
-                            <a class="navbar-item" href="{% url 'welcome'%}">Home</a>
-                            <a class="navbar-item" href="{% url 'entryForm' %}">New Entry</a>
-                            <a class="navbar-item" href="{% url 'formData'%}">Update Entry</a>
-                            <a class="navbar-item" href="{% url 'imageData' %}">Image Data</a>
-                            <a class="navbar-item" href="{% url 'welcome' %}">Image Handling</a>
-                        </div>
-                        <div class="navbar-end">
-                            <a class="navbar-item" href="{% url 'welcome' %}">Analysis</a>
-                            <a class="navbar-item" href="{% url 'about' %}">About</a>
-                        </div>
+        <section id="navbar">
+            <nav class="navbar">
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="{% url 'welcome'%}">Home</a>
+                        <a class="navbar-item" href="{% url 'entryForm' %}">New Entry</a>
+                        <a class="navbar-item" href="{% url 'formData'%}">Update Entry</a>
+                        <a class="navbar-item" href="{% url 'imageData' %}">Image Data</a>
+                        <a class="navbar-item" href="{% url 'welcome' %}">Image Handling</a>
                     </div>
-                    
-                    
-                </nav>
-                {% endblock %}
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="{% url 'welcome' %}">Analysis</a>
+                        <a class="navbar-item" href="{% url 'about' %}">About</a>
+                    </div>
+                </div>
                 
                 
-                {% endblock %}
-                
-                
-                {% block content %}{% endblock %}
-                
-                {% block footer %}{% endblock %}
-            </div>
-        </div>
+            </nav>
+        </section>
+        <section id="content">
+            {% block content %}{% endblock %}
+        </section>
     </div>
+</div>
+</div>
 </body>
 </html>

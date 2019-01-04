@@ -2,30 +2,14 @@
 
 
 {% block content %}
-  <!-- <div style="margin-left:25%;padding:1px 16px;height:5000px;"> -->
-<!--     <div style="margin-left:30%;padding:1px 50px;height:auto;"> -->
-    <div style="margin-left:25%;margin-top: 5%;padding:1px 50px;">
-      <div class="wrapper">
-        <h2>Patient Data</h2>
-        <br/>
-
-        <form class="form" action="/post_create/" method="post">
-            {% csrf_token %}
-
-            {% include "form_controls.html" %}
-              <br/>
-              <p class="submitdata">
-                    <button type="submit">Edit</button>
-              </p>
-              <p class="submitdata">
-                    <button type="submit">Save</button>
-              </p>
-
-
-
-        </form>
-
-
-    </div>
-  </div>
+<div>
+  <h2 class="title is-2">Patient Data</h2>
+  <form class="form" action="/post_create/" method="post">
+    {% csrf_token %}
+    
+    {% include "form_controls.html" %}
+    <button class="button" type="submit">Edit</button>
+    <button class="button" type="submit">Save</button>
+  </form>
+</div>
 {% endblock %}
