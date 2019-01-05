@@ -1,90 +1,18 @@
-
-
-.imagedata_content .download_img, .upload_img {
-    float:left;
-    margin-right:0.5em;
-    /*margin-right: 5px;*/
-   /*vertical-align: middle;*/
-
-    /*display:block;*/
-    width:50%;
-    height: 50%;
-    /*height: auto;*/
-    background-position:center;
-    background-size: 100%;
+#ud-buttons { 
+    display: grid;
+    grid-auto-flow: column;
+    justify-items: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100%;
 }
 
-
-.imagedata_content .download_button {
-    display:inline-block;
-
-    margin-left: 10%;
-
- /*   display:block;
-    background:transparent;*/
-    background-size: cover;
-
-
-    width: 200px;
-    height: 200px;
-
-
-    /*line-height: 50px;*/
-    text-align: left;
-    text-indent: 10px;
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid #900;
-    /*border: 1px solid #333;*/
-    background-color: white;
-    cursor: pointer;
-    /*margin: 20px;*/
+.ud-button {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 
 }
-.imagedata_content .upload_button{
-    display:inline-block;
-
-    margin-left: 30%;
-
- /*   display:block;
-    background:transparent;*/
-    background-size: cover;
-
-
-    width: 200px;
-    height: 200px;
-
-
-    /*line-height: 50px;*/
-    text-align: left;
-    text-indent: 10px;
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid #900;
-    /*border: 1px solid #333;*/
-    background-color: white;
-    cursor: pointer;
-    /*margin: 20px;*/
+.ud-button img {
+    height: 20vmin;
 }
-
-
-
-
-.imagedata_content .download_button:hover {
-    background-color: #F7F7F7;
-}
-.imagedata_content .upload_button:hover {
-    background-color: #F7F7F7;
-}
-
-
-
