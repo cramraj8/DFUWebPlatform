@@ -11,16 +11,13 @@
     
     
     <div id="container">
-        <section id="logo">
-            <img src="{% static 'images/logo.png' %}" alt="Diabetic Logo">
-        </section>
-
         <section id="header">
             <h1 class="title">Diabetic Neuropathy Monitorization</h1>
         </section>
         <section id="sidebar">
             
-            <h3 class="subtitle is-3">Diabetic Ulcer Management System</h3>
+            <img src="{% static 'images/logo.png' %}" alt="Diabetic Logo">
+            <h3 class="subtitle is-3" align="center">Diabetic Ulcer Management System</h3>
             
             <ul>
                 <li><i class="fa fa-road"></i> 22 Something st</li>
@@ -28,11 +25,10 @@
                 <li><i class="fa fa-envelope"></i> dfu@gmail.com</li>
             </ul>
             
-            
-            <button class="button" onclick="location.href='{% url 'logout' %}'">Logout</button>
-            
-            <button class="button" type="submit">Account Settings</button>
-            
+            <div class="buttons">
+                <button class="button" onclick="location.href='{% url 'logout' %}'">Logout</button>
+                <button class="button" type="submit">Account Settings</button>
+            </div>
         </section>
         
         <section id="navbar">
