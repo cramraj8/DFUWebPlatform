@@ -2,26 +2,23 @@
 {% block content %}
     <div>
             <form class="form" action="/post_download/" method="post">
-                <div class="get_data_form">
-                    <p>
-                        <label for="patient_id">Patient ID</label>
-                        <input type="text" name="patient_id" id="patient_id" required>
-                    </p>
+                    <div class="field">
+                        <label class="label" for="patient_id">Patient ID</label>
+                        <input class="input" type="text" name="patient_id" id="patient_id" required>
+                    </div>
 
-                    <p>
-                        <label for="fullname">Full Name</label>
-                        <input type="text" name="fullname" id="fullname" placeholder="Full Name">
-                    </p>
+                    <div class="field">
+                        <label class="label" for="fullname">Full Name</label>
+                        <input class="input" type="text" name="fullname" id="fullname" placeholder="Full Name">
+                    </div>
 
-                    <p>
-                        <label for="email">Email Address</label>
-                        <input type="email" name="email" id="email" placeholder="john@gmail.com">
-                    </p>
-                </div>
+                    <div class="field">
+                        <label class="label" for="email">Email Address</label>
+                        <input class="input" type="email" name="email" id="email" placeholder="john@gmail.com">
+                    </div>
 
-                <div class="buttonDownload">
+                <div class="button">
                     <a href="#" class="download" onclick="downloadClick">Download</a>
-                    <!-- <button type="submit">Submit</button> -->
                 </div>
                 <!-- <button type="submit">Submit</button> -->
 
@@ -53,7 +50,6 @@
                   // };
                   // firebase.initializeApp(config);
 
-                  alert('Hello');
 
                   // Get a reference to the storage service, which is used to create references in your storage bucket
 
