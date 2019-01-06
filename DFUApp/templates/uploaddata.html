@@ -1,6 +1,7 @@
 {% extends "base_generic.html" %}
-
+{% load static %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/uploaddata.css' %}">
 <div>
     <form class="form">
         
@@ -42,8 +43,8 @@
                 <!-- <p>No files currently selected for upload</p> -->
                 <!-- <img id="preview_image" style= "width:60%;
                     max-height: 150px;"/> -->
-                    <img id="preview_image" style="max-height: 150px;"/>
-                    
+                    <img id="preview_image"/>
+                    <p>Click on the image to enlarge</p>
                     <!-- Add image meta data -->
                     
                     <!-- The Modal -->
