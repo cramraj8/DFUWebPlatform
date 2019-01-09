@@ -3,96 +3,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
-
-        <link rel="stylesheet" href="{% static 'css/main_header.css' %}">
-        <link rel="stylesheet" href="{% static 'css/main_navbar.css' %}">
-        <link rel="stylesheet" href="{% static 'css/main_sidebar.css' %}">
-        <link rel="stylesheet" href="{% static 'css/entryform.css' %}">
-        <link rel="stylesheet" href="{% static 'css/formdata.css' %}">
-
-        <link rel="stylesheet" href="{% static 'css/imagedata.css' %}">
-        <link rel="stylesheet" href="{% static 'css/downloaddata.css' %}">
-        <link rel="stylesheet" href="{% static 'css/uploaddata.css' %}">
-
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-
+    <title>Diabetic Neuropathy Monitorization</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <link rel="stylesheet" href="{% static 'css/base_generic.css' %}">
 </head>
 <body>
-
-
-
-
-    {% block header %}
-    <dir class="header">
-        {% load static %}
-        <img src="{% static 'images/logo.png' %}" alt="Diabetic Logo"
-                    width="10%" height="10%">
-        <h1 align="center">Diabetic Neuropathy Monitorization</h1>
-
-
-    </dir>
-    {% endblock %}
-
-
-
-    {% block navbar %}
-      <div class="navbar">
-
-
-          <ul>
-              <li><a class="active" href="{% url 'welcome'%}">Home</a></li>
-              <li><a href="{% url 'entryForm' %}">First Form</a></li>
-              <li><a href="{% url 'formData'%}">Form Data</a></li>
-              <li><a href="{% url 'imageData' %}">Image Data</a></li>
-
-              <li><a href="{% url 'welcome' %}">Image Handling</a></li>
-              <li><a href="{% url 'welcome' %}">Analysis</a></li>
-
-              <li style="float:right"><a href="{% url 'about' %}">About</a></li>
-          </ul>
-
-
-      </div>
-    {% endblock %}
-
-
-    {% block sidebar %}
-    <div class="sidebar">
-
-        <h3>Diabetic Ulcer Management System</h3>
-
+    
+    
+    <div id="container">
+        <section id="header">
+            <h1 class="title">Diabetic Neuropathy Monitorization</h1>
+        </section>
+        <section id="sidebar">
+            
+            <img src="{% static 'images/logo.png' %}" alt="Diabetic Logo">
+            <h3 class="subtitle is-3" align="center">Diabetic Ulcer Management System</h3>
+            
             <ul>
                 <li><i class="fa fa-road"></i> 22 Something st</li>
                 <li><i class="fa fa-phone"></i> (555) 555-5555</li>
                 <li><i class="fa fa-envelope"></i> dfu@gmail.com</li>
             </ul>
-
-
-            <p class="full">
-                  <button type="button"
-                  onclick="location.href='{% url 'logout' %}'">Logout</button>
-            </p>
-
-
-            <p class="full">
-                  <button type="submit">Account Settings</button>
-            </p>
-
+            
+            <div class="buttons">
+                <button class="button" onclick="location.href='{% url 'logout' %}'">Logout</button>
+                <button class="button" type="submit">Account Settings</button>
+            </div>
+        </section>
+        
+        <section id="navbar">
+            <nav class="navbar">
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="{% url 'welcome'%}">Home</a>
+                        <a class="navbar-item" href="{% url 'entryForm' %}">New Entry</a>
+                        <a class="navbar-item" href="{% url 'formData'%}">Update Entry</a>
+                        <a class="navbar-item" href="{% url 'imageData' %}">Image Data</a>
+                        <a class="navbar-item" href="{% url 'welcome' %}">Image Handling</a>
+                    </div>
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="{% url 'welcome' %}">Analysis</a>
+                        <a class="navbar-item" href="{% url 'about' %}">About</a>
+                    </div>
+                </div>
+                
+                
+            </nav>
+        </section>
+        <section id="content">
+            {% block content %}{% endblock %}
+        </section>
     </div>
-    {% endblock %}
-
-
-    {% block content %}{% endblock %}
-
-    {% block footer %}{% endblock %}
-
+</div>
+</div>
 </body>
-
-
 </html>

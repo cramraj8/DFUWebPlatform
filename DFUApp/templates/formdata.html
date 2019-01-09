@@ -1,29 +1,17 @@
 {% extends "base_generic.html" %}
 
-
 {% block content %}
-    <div style="margin-left:30%;padding:1px 50px;height:auto;">
-        <div class="wrapper">
-            <div class="formdata">
-
-
-                <form action="/get_data/" method="POST">
-                    {% csrf_token %}
-
-                    <label>Full Name:</label>
-                    <input type="text" name="fullname" id="fullname" value="{{e}}">
-                    <br>
-                    <br>
-
-                    <!-- <button type="submit"
-                            onclick="location.href="{% url 'get_data'%}">Get Data</button> -->
-                    <button type="submit">Get Data</button>
-
-                    <label class="display_label">Hello  {{e}}</label>
-
-                </form>
-
-            </div>
+<div>
+    
+    <form action="/get_data/" method="POST">
+        {% csrf_token %}
+        
+        <div class="field">
+            <label class="label">Full Name:</label>
+            <input class="input" type="text" name="fullname" id="fullname" value="{{e}}">
         </div>
-    </div>
+        
+        <button class="button is-success" type="submit">Get Data</button>
+    </form>
+</div>
 {% endblock %}

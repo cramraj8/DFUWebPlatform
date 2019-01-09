@@ -1,179 +1,152 @@
 {% extends "base_generic.html" %}
-
-
+{% load static %}
 {% block content %}
-  <!-- <div style="margin-left:25%;padding:1px 16px;height:5000px;"> -->
-    <div style="margin-left:30%;padding:1px 50px;height:auto;">
-        <div class="wrapper">
-
-            <form class="form">
-            <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
-                <div class="get_data_form" style="display: block;">
-                    <p>
-                        <label for="patient_id">Patient ID</label>
-                        <input type="text" name="patient_id" id="patient_id" required>
-                    </p>
-
-                    <p>
-                        <label for="fullname">Full Name</label>
-                        <input type="text" name="fullname" id="fullname" placeholder="Full Name">
-                    </p>
-
-                    <p>
-                        <label for="email">Email Address</label>
-                        <input type="email" name="email" id="email" placeholder="john@gmail.com">
-                    </p>
-                </div>
-
-            <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
-            </form>
-
-            <div class="upload_area">
-
-                    <fieldset>
-
-                        <legend>Files</legend>
-
-                        <div class="image_field">
-                            <label for="files">Choose RGB Image (PNG, JPG)</label>
-                            <!-- <input type="hidden" name="url" id="url"> -->
-                            <input type="text" name="url" id="url" style="width: 75%; padding-left: -12%;">
-                            <input id="files" type="file" name="files" multiple
-                                    placeholder="Add profile picture"
-                                    accept=".png, .jpg, .jpeg" />
-                        </div>
-
-                        <div class="preview">
-                            <!-- <p>No files currently selected for upload</p> -->
-                            <!-- <img id="preview_image" style= "width:60%;
-                                                            max-height: 150px;"/> -->
-                            <img id="preview_image" style="max-height: 150px;"/>
-
-                            <!-- Add image meta data -->
-
-                            <!-- The Modal -->
-                            <div id="myModal" class="modal">
-                              <span class="close">&times;</span>
-                              <img class="modal-content" id="img01">
-                              <div id="caption"></div>
-                            </div>
-                        </div>
-
-                        <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-                        <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-                        <script type="text/javascript">
-
-                            document.getElementById("files").onchange = function () {
-                                var reader = new FileReader();
-
-                                reader.onload = function (e) {
-                                // get loaded data and render thumbnail.
-                                document.getElementById("preview_image").src = e.target.result;
-                                                        };
-                                // read the image file as a data URL.
-                                reader.readAsDataURL(this.files[0]);
-                            };
-
-                        </script>
-                        <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-                        <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-                        <script>
-                            // Get the modal
-                            var modal = document.getElementById('myModal');
-                            // Get the image and insert it inside the modal - use its "alt" text as a caption
-                            var img = document.getElementById('preview_image');
-                            var modalImg = document.getElementById("img01");
-                            var captionText = document.getElementById("caption");
-
-                            img.onclick = function(){
-                                modal.style.display = "block";
-                                modalImg.src = this.src;
-                                captionText.innerHTML = this.alt;
-                            }
-                            // Get the <span> element that closes the modal
-                            // var span = document.getElementsByClassName("close")[0];
-                            var span=document.getElementsByClassName("modal-content")[0];
-
-                            // When the user clicks on <span> (x), close the modal
-                            span.onclick = function() {
-                                modal.style.display = "none";
-                            }
-                        </script>
-                        <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-                        <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
-                        <dir class="buttonUpload">
-                            <!-- <a href="#" class="upload">Upload</a> -->
-                            <button type="button" onclick="uploadimage()">Upload</button>
-                            <br><br>
-                        </dir>
-
-                        <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
-                        <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-                        <script type="text/javascript">
-                            var config = {
-                                'apiKey': "AIzaSyCcNlDbs4TTjWyO1y8EBj3deI9Cmk7ZR98",
-                                'authDomain': "dfumonitoring.firebaseapp.com",
-                                'databaseURL': "https://dfumonitoring.firebaseio.com",
-                                'projectId': "dfumonitoring",
-                                'storageBucket': "dfumonitoring.appspot.com",
-                                'messagingSenderId': "52399712278"
-                                // "serviceAccount": "path/to/serviceAccountCredentials.json"
-                            };
-                            firebase.initializeApp(config);
-
-                            function uploadimage(){
-                                var storage = firebase.storage();
-
-                                var file = document.getElementById("files").files[0];
-
-                                var patient_id = document.getElementById("patient_id");
-
-                                var storageRef = storage.ref();
-
-                                // var thisref = storageRef.child(file.name).put(file);
-                                // var thisref = storageRef.child(patient_id.value()).child(file.name).put(file);
-
-                                // var thisref = storageRef.child(patient_id).put(file);
-
-                                var thisref = storage.ref('PatientFootImage/' + patient_id);
-                                console.log(patient_id.value);
-                                thisref.put(file);
-
-                                thisref.on('state_changed',function(snapshot){
-                                        console.log("file uplaoded succesfully");
-                                    },
-                                    function(error) {},
-                                    function() {
-                                        // Upload completed successfully, now we can get the download URL
-                                        var downloadURL = thisref.snapshot.downloadURL;
-                                        console.log("got url");
-                                        document.getElementById("url").value = downloadURL;
-                                        // alert("file uploaded very !!!! successfully");
-                                    }
-                                );
-                              }
-
-                        </script>
-
-                        <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-                        <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
-
-                        <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-                        <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
-
-                    </fieldset>
-
+<link rel="stylesheet" href="{% static 'css/uploaddata.css' %}">
+<div>
+    <form class="form">
+        
+        <div class="field">
+            <label class="label" for="patient_id">Patient ID</label>
+            <input class="input" type="text" name="patient_id" id="patient_id" required>
+        </div>
+        
+        <div class="field">
+            <label class="label" for="fullname">Full Name</label>
+            <input class="input" type="text" name="fullname" id="fullname" placeholder="Full Name">
+        </div>
+        
+        <div class="field">
+            <label class="label" for="email">Email Address</label>
+            <input class="input" type="email" name="email" id="email" placeholder="john@gmail.com">
+        </div>
+        
+        <label class="label">Files</label>
+        <div class="box upload_area">
+            
+            <div class="field">
+                <label class="label" for="files">Choose RGB Image (PNG, JPG)</label>
+                <input class="input" type="text" name="url" id="url" placeholder="URL">
             </div>
-
+            
+            <div class="file">
+                <label class="file-label">
+                    <input class="file-input" id="files" type="file" name="files" multiple accept=".png, .jpg, .jpeg">
+                    <span class="file-cta">
+                        <span class="file-label">
+                            Choose files
+                        </span>
+                    </span>
+                </label>
+            </div>
+            
+            <div class="preview">
+                <!-- <p>No files currently selected for upload</p> -->
+                <!-- <img id="preview_image" style= "width:60%;
+                    max-height: 150px;"/> -->
+                    <img id="preview_image"/>
+                    <p>Click on the image to enlarge</p>
+                    <!-- Add image meta data -->
+                    
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01">
+                        <div id="caption"></div>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+            <div class="buttonUpload">
+                <button class="button" type="button" onclick="uploadimage()">Upload</button>
+            </div>
+            
+        </form>
+        
     </div>
-  </div>
+    
+    <script type="text/javascript">
+        
+        document.getElementById("files").onchange = function () {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                // get loaded data and render thumbnail.
+                document.getElementById("preview_image").src = e.target.result;
+            };
+            // read the image file as a data URL.
+            reader.readAsDataURL(this.files[0]);
+        };
+        
+    </script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementById('preview_image');
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        
+        img.onclick = function(){
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+        // Get the <span> element that closes the modal
+            // var span = document.getElementsByClassName("close")[0];
+        var span=document.getElementsByClassName("modal-content")[0];
+            
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+</script>
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script type="text/javascript">
+    var config = {
+        'apiKey': "AIzaSyCcNlDbs4TTjWyO1y8EBj3deI9Cmk7ZR98",
+        'authDomain': "dfumonitoring.firebaseapp.com",
+        'databaseURL': "https://dfumonitoring.firebaseio.com",
+        'projectId': "dfumonitoring",
+        'storageBucket': "dfumonitoring.appspot.com",
+        'messagingSenderId': "52399712278"
+        // "serviceAccount": "path/to/serviceAccountCredentials.json"
+    };
+    firebase.initializeApp(config);
+    
+    function uploadimage(){
+        var storage = firebase.storage();
+        
+        var file = document.getElementById("files").files[0];
+        
+        var patient_id = document.getElementById("patient_id");
+        
+        var storageRef = storage.ref();
+        
+        // var thisref = storageRef.child(file.name).put(file);
+        // var thisref = storageRef.child(patient_id.value()).child(file.name).put(file);
+        
+        // var thisref = storageRef.child(patient_id).put(file);
+        
+        var thisref = storage.ref('PatientFootImage/' + patient_id);
+        console.log(patient_id.value);
+        thisref.put(file);
+        
+        thisref.on('state_changed',function(snapshot){
+            console.log("file uplaoded succesfully");
+        },
+        function(error) {},
+        function() {
+            // Upload completed successfully, now we can get the download URL
+            var downloadURL = thisref.snapshot.downloadURL;
+            console.log("got url");
+            document.getElementById("url").value = downloadURL;
+            // alert("file uploaded very !!!! successfully");
+        }
+        );
+    }
+    
+</script>
 {% endblock %}
-
-<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+            

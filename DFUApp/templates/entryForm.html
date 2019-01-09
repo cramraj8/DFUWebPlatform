@@ -1,109 +1,16 @@
 {% extends "base_generic.html" %}
 
-
 {% block content %}
-  <!-- <div style="margin-left:25%;padding:1px 16px;height:5000px;"> -->
-<!--     <div style="margin-left:30%;padding:1px 50px;height:auto;"> -->
-    <div style="margin-left:25%;margin-top: 5%;padding:1px 50px;">
-      <div class="wrapper">
-        <h2>Patient Data</h2>
-        <br/>
-
-        <form class="form" action="/post_create/" method="post">
+<div>
+      <h2 class="title is-4">Patient Data</h2>
+      <form action="/post_create/" method="post">
             {% csrf_token %}
-
-              <p>
-                    <label for="patient_id">Patient ID</label>
-                    <!-- <input type="text" name="patient_id" id="patient_id" value="Auto Assign" required> -->
-                    <input type="text" name="patient_id" id="patient_id" required>
-              </p>
-              <p>
-                    <label for="fullname">Full Name</label>
-                    <!-- <input type="text" name="fullname" id="fullname" value="Full Name"> -->
-                    <input type="text" name="fullname" id="fullname">
-              </p>
-              <p>
-                    <label for="email">Email Address</label>
-                    <input type="email" name="email" id="email" placeholder="john@gmail.com">
-              </p>
-              <p>
-                    <label for="address">Address</label>
-                    <input type="text" name="address" id="address">
-              </p>
-              <p>
-                    <label for="age">Age</label>
-                    <input type="number" name="age" id="age">
-              </p>
-              <p>
-                    <label for="dateofbirthvisit">Date of Birth</label>
-                    <input type="date" name="dob" id="dateofbirthvisit">
-              </p>
-              <p>
-                    <label for="phone">Contact Number</label>
-                    <input type="tel" name="phone" id="phone" value="0772202200">
-              </p>
-              <p>
-                    <label for="dateoffirstvisit">Date of First Visit</label>
-                    <input type="date" name="dateoffirstvisit" id="dateoffirstvisit">
-              </p>
-
+            
+            {% include "form_controls.html" %}
+            
             <br/>
-            <h3>Medical Data</h3>
-            <br/>
-              <!-- Medical Data -->
-
-              <p>
-                    <label for="height">Height</label>
-                    <input type="number" name="height" id="height">
-              </p>
-              <p>
-                    <label for="weight">Weight</label>
-                    <input type="number" name="weight" id="weight">
-              </p>
-              <p>
-                    <label for="bmi">BMI</label>
-                    <input type="number" name="bmi" id="bmi">
-              </p>
-              <p>
-                    <label for="dateoflastvisit">Date of Last Visit</label>
-                    <input type="date" name="dateoflastvisit" id="dateoflastvisit">
-              </p>
-              <p class="full">
-                    <label for="medicalhistory">Medical History</label>
-                    <textarea name="medicalhistory" rows="5" id="medicalhistory"></textarea>
-              </p>
-
-
-            <br/>
-            <br/>
-            <br/>
-            <h3>Diabetic Related Data</h3>
-            <br/>
-
-              <!-- Diabetic Specific Data -->
-              <p>
-                    <label for="diabetictype">Diabetic Type</label>
-                    <input type="text" name="diabetictype" id="diabetictype">
-              </p>
-              <p>
-                    <label for="dateofidentification">Date of Identification</label>
-                    <input type="date" name="dateofidentification" id="dateofidentification">
-              </p>
-              <p>
-                    <label for="dfucondition">DFU Condition</label>
-                    <input type="text" name="dfucondition" id="dfucondition">
-              </p>
-
-              <br/>
-              <p class="submitdata">
-                    <button type="submit">Submit</button>
-              </p>
-
-
-
-        </form>
-
-
-    </div>
-  </div>
+            <button class="ui button is-success" type="submit">Submit</button>
+            
+      </form>
+</div>
 {% endblock %}
