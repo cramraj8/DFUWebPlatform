@@ -26,6 +26,7 @@ body {
     /* border-right: 1px solid #666666; */
     margin: 0 20px 20px 20px;
     background-color: #14baaf;
+    border-radius: 5px !important;
 }
 #sidebar img {
     border-radius: 50%;
@@ -34,6 +35,10 @@ body {
 #navbar {
     grid-row: 2 / 3;
     grid-column: 2 / -1;
+}
+
+.navbar {
+    border-radius: 5px;
 }
 
 #content {
