@@ -1,7 +1,8 @@
 {% extends "base_generic.html" %}
 {% block content %}
     <div>
-            <form class="form" action="/post_download/" method="post">
+            <!-- <form class="form" action="/post_download/" method="post"> -->
+            <form class="form">
                     <div class="field">
                         <label class="label" for="patient_id">Patient ID</label>
                         <input class="input" type="text" name="patient_id" id="patient_id" required>
@@ -17,21 +18,26 @@
                         <input class="input" type="email" name="email" id="email" placeholder="john@gmail.com">
                     </div>
 
-                <div class="button">
+               <!--  <div class="button">
                     <a href="#" class="download" onclick="downloadClick">Download</a>
+                </div> -->
+
+                <div class="buttonUpload">
+                  <button class="button" type="button" onclick="downloadClick()">Download</button>
                 </div>
                 <!-- <button type="submit">Submit</button> -->
 
                 <div class="image_view">
 
-                    <img src="{{img}}" id="dowloaded_image"/>
+                    <!-- <img src="{{img}}" id="dowloaded_image"/> -->
+                    <img id="dowloaded_image"/>
 
                     <!-- The Modal -->
-                    <div id="myModal" class="modal">
+                    <!-- <div id="myModal" class="modal">
                           <span class="close">&times;</span>
                           <img class="modal-content" id="img01">
                           <div id="caption"></div>
-                    </div>
+                    </div> -->
 
                 </div>
 
@@ -39,57 +45,59 @@
             </form>
 
             <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<!--             <script>
+            function downloadClick() {
+              alert("Hello! I am an alert box!");
+            }
+            </script> -->
+
             <script>
-                  // var config = {
-                  //   'apiKey': "AIzaSyCcNlDbs4TTjWyO1y8EBj3deI9Cmk7ZR98",
-                  //   'authDomain': "dfumonitoring.firebaseapp.com",
-                  //   'databaseURL': "https://dfumonitoring.firebaseio.com",
-                  //   'projectId': "dfumonitoring",
-                  //   'storageBucket': "dfumonitoring.appspot.com",
-                  //   'messagingSenderId': "52399712278"
-                  // };
-                  // firebase.initializeApp(config);
+
+                  var config = {
+                        'apiKey': "AIzaSyCcNlDbs4TTjWyO1y8EBj3deI9Cmk7ZR98",
+                        'authDomain': "dfumonitoring.firebaseapp.com",
+                        'databaseURL': "https://dfumonitoring.firebaseio.com",
+                        'projectId': "dfumonitoring",
+                        'storageBucket': "dfumonitoring.appspot.com",
+                        'messagingSenderId': "52399712278"
+                        // "serviceAccount": "path/to/serviceAccountCredentials.json"
+                    };
+                  firebase.initializeApp(config);
+
+                  function downloadClick(){
+                    // alert('hii');
+
+                    var file = document.getElementById("patient_id");
+                    var storage = firebase.storage();
+                    var storageRef = storage.ref();
+                    var pathReference = storage.ref('PatientFootImage/' +
+                                         patient_id.value +
+                                       '/RGBImage/' + 'test1.png');
+                    // alert(pathReference);
+
+                    // retrieve image from firebase storage
+                    var storageRef = firebase.storage().ref();
+                    var spaceRef = storageRef.child('PatientFootImage/' +
+                                         patient_id.value +
+                                       '/RGBImage/' + 'test1.png');
+                    storageRef.child('PatientFootImage/' +
+                                         patient_id.value +
+                                       '/RGBImage/' + 'test1.png').getDownloadURL().then(function(url) {
+                        console.log("bsbdsbsdbd");
+                        var test = url;
+                        var img = document.getElementById('dowloaded_image');
+                        img.src = url;
+                        // alert("hfdghjghj",url);
+                    }).catch(function(error) { });
 
 
-                  // Get a reference to the storage service, which is used to create references in your storage bucket
 
-                  // function downloadClick(){
-                      // var storage = firebase.storage();
 
-                      // var file = document.getElementById("patient_id");
+                  }
 
-                  //     var storageRef = storage.ref();
 
-                  //     var thisref = storage.ref('PatientFootImage/' + patient_id);
-                  //     // thisref.put(file);
-                  //     // var thisref = storageRef.child(file.name).put(file);
-
-                  //     var downloadURL = thisref.downloadURL;
-                  //     document.getElementById("downloadURL").value = downloadURL;
-
-                  //     thisref.on('state_changed',function(snapshot){
-
-                  //     console.log("file uplaoded succesfully");
-
-                  // })
-                  // };
-                  // ,
-                  // function(error) {
-
-                  // },
-
-                //   function() {
-                //   // Upload completed successfully, now we can get the download URL
-                //   var downloadURL = thisref.snapshot.downloadURL;
-                //   console.log("got url");
-                //   document.getElementById("url").value = downloadURL;
-                //   alert("file uploaded successfully");
-                // }
-                // );
-
-                // };
             </script>
+
         </div>
-    </div>
 {% endblock %}
 

@@ -1,5 +1,5 @@
 {% extends "base_generic.html" %}
-
+{% load static %}
 
 
 {% block content %}
@@ -7,31 +7,40 @@
 
     <div>
 
-        <h1>Local  Home</h1>
+        <br>
+        <h1><b>Home Introduction - What is DFU Project?</b></h1>
             <div>
                 <!-- Welcome {{e}} -->
+                The project consists with building a feasible foot temperature measurement system to get patients’ images, manage the images and processing the thermal images by using image processing and machine vision methods.
                 <br><br>
             </div>
+
+            <dir>
+                <img src="{% static 'images/hardwaresystem.png' %}" height="50%" width="50%"align="left">
+                <img src="{% static 'images/softwaresystem.png' %}" height="50%" width="50%" align="right">
+            </dir>
 
         <!-- <button type="button" onclick="location.href='{% url 'check' %}'">Check Report</button> -->
 
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-
+<!--
         {% for time,dat,work in comb_lis %}
 
             Date: {{dat}} &nbsp;Work: <a href="/post_check/?z={{time}}"  >No variable</a>
             <br>
 
-        {% endfor %}
+        {% endfor %} -->
 
 
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
-    <p>
+   <!--  <p>
         Welcome to DFU Monitorization Home Page
-    </p>
+    </p> -->
 
-    <p>
+    <br/>
+    <dir>
+ <!--        <p>
         What is DFU?
         <p>Description</p>
     </p>
@@ -44,7 +53,9 @@
     <p>
         What are our features?
         <p>Description</p>
-    </p>
+    </p> -->
+    </dir>
+
 
 
 

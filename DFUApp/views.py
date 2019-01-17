@@ -77,19 +77,21 @@ def uploaddata(request):
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-def post_download(request):
-    patientId = request.POST.get('patient_id')
+# def post_download(request):
+#     # patientId = request.POST.get('patient_id')
 
-    # img = database.child('PatientFootImage').child(patientId).get().val()
-    # img = database.child('PatientFootImage').get().val()
-    # print('Image received')
+#     # # img = database.child('PatientFootImage').child(patientId).get().val()
+#     # # img = database.child('PatientFootImage').get().val()
+#     # # print('Image received')
 
-    # img_url = database.child('PatientFootImage').child('url').get().val()
-    img_url = database.child('PatientFootImage').child('url').get().val()
+#     # # img_url = database.child('PatientFootImage').child('url').get().val()
+#     # img_url = database.child('PatientFootImage').child('url').get().val()
 
-    context = {'imageData': img_url}
+#     # context = {'imageData': img_url}
 
-    return render(request, 'downloaddata.html', context)
+#     # return render(request, 'downloaddata.html', context)
+
+#     return render(request, 'downloaddata.html')
 
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

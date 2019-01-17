@@ -8,29 +8,29 @@
     <link rel="stylesheet" href="{% static 'css/base_generic.css' %}">
 </head>
 <body>
-    
-    
+
+
     <div id="container">
         <section id="header">
             <h1 class="title">Diabetic Neuropathy Monitorization</h1>
         </section>
         <section id="sidebar" class="has-background-info">
-            
+
             <img src="{% static 'images/logo.png' %}" alt="Diabetic Logo">
             <h3 class="subtitle is-3" align="center">Diabetic Ulcer Management System</h3>
-            
+
             <ul>
-                <li><i class="fa fa-road"></i> 22 Something st</li>
-                <li><i class="fa fa-phone"></i> (555) 555-5555</li>
-                <li><i class="fa fa-envelope"></i> dfu@gmail.com</li>
+                <li style="text-align:center"><i class="fa fa-road"></i> Bandaranayake Mawatha, Moratuwa 10400</li>
+                <li style="text-align:center"><i class="fa fa-phone"></i> (555) 555-5555</li>
+                <li style="text-align:center"><i class="fa fa-envelope"></i> dfu@gmail.com</li>
             </ul>
-            
+
             <div class="buttons">
                 <button class="button" onclick="location.href='{% url 'logout' %}'">Logout</button>
                 <button class="button" type="submit">Account Settings</button>
             </div>
         </section>
-        
+
         <section id="navbar">
             <nav class="navbar is-primary">
                 <div class="navbar-menu">
@@ -46,8 +46,8 @@
                         <a class="navbar-item" href="{% url 'about' %}">About</a>
                     </div>
                 </div>
-                
-                
+
+
             </nav>
         </section>
         <section id="content">

@@ -37,7 +37,7 @@ urlpatterns = [
 
     url(r'^imagedata/', views.imagedata, name='imageData'),
     url(r'^downloaddata/', views.downloaddata, name='downloadData'),
-    url(r'^post_download/', views.post_download, name='post_download'),
+    # url(r'^post_download/', views.post_download, name='post_download'),
     url(r'^uploaddata/', views.uploaddata, name='uploadData'),
 
     url(r'^about/', views.about, name='about'),
